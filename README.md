@@ -19,8 +19,7 @@ Git installed.
 ### Running from IDE
 Open the source code in your prefared IDE InteliJ, Eclipse, Vs code e.t.c..
 Run Application.java file and the as stand alone 
-*The apllication run on port 8092 can be changed on application.properties file.*
-*The apllication uses H2 database and it will be initialised no start.* 
+*The apllication run on port 8092 can be changed on application.properties file and uses H2 database and it will be initialised on start.* 
 
 
 ### Running as a jar file.
