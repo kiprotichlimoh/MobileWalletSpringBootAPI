@@ -1,10 +1,7 @@
 package com.comulynx.wallet.rest.api.controller;
 
 import java.util.List;
-<<<<<<< HEAD
 import java.util.Optional;
-=======
->>>>>>> b4cb3987d1307c027db60af3d7222695825d7082
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -45,22 +42,12 @@ public class TransactionController {
 	 * @throws ResourceNotFoundException
 	 */
 	@GetMapping("/{searchId}")
-<<<<<<< HEAD
 	public ResponseEntity<?> findTransactionsByCustomerIdOrAccountNo(
 			@PathVariable(value = "searchId") String customerIdOrAccountNo) throws ResourceNotFoundException {
 		List<Transaction> account = transactionRepository
 				.findTransactionsByCustomerIdOrAccountNo(customerIdOrAccountNo, customerIdOrAccountNo)
 				.orElseThrow(() -> new ResourceNotFoundException(
 						"Transactions not found for this searchId :: " + customerIdOrAccountNo));
-=======
-	public ResponseEntity<?> getTransactionsByCustomerIdOrTransactionId(
-			@PathVariable(value = "searchId") String customerIdOrAccountNo) throws ResourceNotFoundException {
-		List<Transaction> account = transactionRepository
-				.findTransactionsByCustomerIdOrTransactionId(customerIdOrAccountNo, customerIdOrAccountNo)
-				.orElseThrow(() -> new ResourceNotFoundException(
-						"Account not found for this searchId :: " + customerIdOrAccountNo));
-
->>>>>>> b4cb3987d1307c027db60af3d7222695825d7082
 		return ResponseEntity.ok().body(account);
 	}
 
@@ -78,19 +65,10 @@ public class TransactionController {
 			final JsonObject balanceRequest = gson.fromJson(request, JsonObject.class);
 			String customerId = balanceRequest.get("customerId").getAsString();
 			String accountNo = balanceRequest.get("accountNo").getAsString();
-<<<<<<< HEAD
 			Optional<List<Transaction>> miniStatement = transactionRepository
 					.getMiniStatementUsingCustomerIdAndAccountNo(customerId, accountNo);
 
 			return ResponseEntity.ok().body(miniStatement);
-=======
-
-			
-			List<Transaction> miniStatement = transactionRepository
-					.getMiniStatementUsingCustomerIdAndAccountNo(customerId, accountNo);
-
-			return ResponseEntity.ok().body(gson.toJson(miniStatement));
->>>>>>> b4cb3987d1307c027db60af3d7222695825d7082
 		} catch (Exception ex) {
 			return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 

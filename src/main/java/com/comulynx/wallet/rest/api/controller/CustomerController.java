@@ -1,19 +1,12 @@
 package com.comulynx.wallet.rest.api.controller;
 
-<<<<<<< HEAD
 import java.nio.charset.StandardCharsets;
-=======
->>>>>>> b4cb3987d1307c027db60af3d7222695825d7082
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.validation.Valid;
-<<<<<<< HEAD
 import com.google.common.hash.Hashing;
-=======
-
->>>>>>> b4cb3987d1307c027db60af3d7222695825d7082
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,10 +20,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-<<<<<<< HEAD
 import com.comulynx.wallet.rest.api.exception.ResouceFoundExeption;
-=======
->>>>>>> b4cb3987d1307c027db60af3d7222695825d7082
 import com.comulynx.wallet.rest.api.exception.ResourceNotFoundException;
 import com.comulynx.wallet.rest.api.model.Account;
 import com.comulynx.wallet.rest.api.model.Customer;
@@ -71,7 +61,6 @@ public class CustomerController {
 	public List<Customer> getAllCustomers() {
 		return customerRepository.findAll();
 	}
-<<<<<<< HEAD
 	/*
 	gets all customer details with customer account details by combining account table details and customer accounts details
 	*/
@@ -84,8 +73,6 @@ public class CustomerController {
 	public List<?> getCustomerAndAccountDetailsBycustId(@PathVariable(value = "customerId") String customerId) {
 		return customerRepository.getFromCustomerAndAccountDetailsPerCustomer(customerId);
 	}
-=======
->>>>>>> b4cb3987d1307c027db60af3d7222695825d7082
 
 	@GetMapping("/{customerId}")
 	public ResponseEntity<Customer> getCustomerByCustomerId(@PathVariable(value = "customerId") String customerId)
@@ -103,7 +90,6 @@ public class CustomerController {
 			// customerId exists. If exists, throw a Customer with [?] exists
 			// Exception.
 
-<<<<<<< HEAD
 			//check if customer exist by customerId or Email 
 			String customerId = customer.getCustomerId();
 			String email = customer.getEmail();
@@ -128,19 +114,6 @@ public class CustomerController {
 
 		} catch (Exception ex) {
 			return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-=======
-			String accountNo = generateAccountNo(customer.getCustomerId());
-			Account account = new Account();
-			account.setCustomerId(customer.getCustomerId());
-			account.setAccountNo(accountNo);
-			account.setBalance(0.0);
-			accountRepository.save(account);
-
-			return ResponseEntity.ok().body(customerRepository.save(customer));
-		} catch (Exception ex) {
-			return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-
->>>>>>> b4cb3987d1307c027db60af3d7222695825d7082
 		}
 	}
 
@@ -177,7 +150,6 @@ public class CustomerController {
 	private String generateAccountNo(String customerId) {
 		// TODO : Add logic here - generate a random but unique Account No (NB:
 		// Account No should be unique in the accounts table)
-<<<<<<< HEAD
 		//woking with the sample account ACT1331 and cust id CUST1331 then account number is derived from cust id
 		String accounNumber = "ACT"+ customerId.substring(customerId.length() -4);
 		return accounNumber;
@@ -190,8 +162,5 @@ public class CustomerController {
 	private String HashCustomerPin(String pin, String email) {
 		String hash = Hashing.sha512().hashString(pin + email, StandardCharsets.UTF_8).toString();
 		return hash;
-=======
-		return "";
->>>>>>> b4cb3987d1307c027db60af3d7222695825d7082
 	}
 }

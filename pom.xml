@@ -10,23 +10,15 @@
 
 	<name>springboot-mobile-wallet-api</name>
 	<description>Spring Boot API</description>
-<<<<<<< HEAD
-=======
 
->>>>>>> b4cb3987d1307c027db60af3d7222695825d7082
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.0.5.RELEASE</version>
 		<relativePath />
 	</parent>
-<<<<<<< HEAD
 	<properties>
 		<start-class>com.comulynx.wallet.rest.api.Application</start-class>
-=======
-
-	<properties>
->>>>>>> b4cb3987d1307c027db60af3d7222695825d7082
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
@@ -41,7 +33,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-<<<<<<< HEAD
 		<!--H2 DATABASE -->
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -61,9 +52,6 @@
 			<version>11.0.2</version>
 			<type>jar</type>
 		</dependency>
-=======
-
->>>>>>> b4cb3987d1307c027db60af3d7222695825d7082
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
@@ -77,11 +65,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-<<<<<<< HEAD
 	 </dependencies>
-=======
-	</dependencies>
->>>>>>> b4cb3987d1307c027db60af3d7222695825d7082
 
 	<build>
 		<plugins>

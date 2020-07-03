@@ -19,10 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-<<<<<<< HEAD
 import com.comulynx.wallet.rest.api.exception.ResouceFoundExeption;
-=======
->>>>>>> b4cb3987d1307c027db60af3d7222695825d7082
 import com.comulynx.wallet.rest.api.exception.ResourceNotFoundException;
 import com.comulynx.wallet.rest.api.model.Webuser;
 import com.comulynx.wallet.rest.api.repository.WebuserRepository;
@@ -44,23 +41,15 @@ public class WebuserController {
 	 * @return
 	 */
 	@PostMapping("/login")
-<<<<<<< HEAD
 	public ResponseEntity<?> webuserLogin(@RequestBody HashMap<String, String> webUser) {
 		try {
 
-=======
-	public ResponseEntity<?> webuserLogin(@RequestBody String request) {
-		try {
-
-
->>>>>>> b4cb3987d1307c027db60af3d7222695825d7082
 			// TODO : Add Webuser login logic here. Login using employeeId and
 			// password
 			//NB: We are using plain text password for testing Webuser login
 			//If username doesn't exists throw an error "User does not exist"
 			//If password do not match throw an error "Invalid credentials"
 			
-<<<<<<< HEAD
 			String employeeId = webUser.get("customerId");
 			String pin = webUser.get("pin");
 			Webuser webusers = webuserRepository.findByEmployeeId(employeeId)
@@ -73,12 +62,6 @@ public class WebuserController {
 			else{
 				return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Invalid credentials");
 			}
-=======
-			
-
-			return ResponseEntity.status(200).body(HttpStatus.OK);
-
->>>>>>> b4cb3987d1307c027db60af3d7222695825d7082
 		} catch (Exception ex) {
 			return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 
@@ -104,7 +87,6 @@ public class WebuserController {
 			// TODO : Add logic to check if Webuser with provided username, or
 			// email, or employeeId, or customerId exists.
 			// If exists, throw a Webuser with [?] exists Exception.
-<<<<<<< HEAD
 			boolean webUserExist = webuserRepository.exists(webuser.getUsername(), webuser.getEmail(), webuser.getEmployeeId(),  webuser.getCustomerId());
 			if (webUserExist){
 				throw new ResouceFoundExeption("Web user Already exist.");
@@ -112,10 +94,6 @@ public class WebuserController {
 			else{
 			return ResponseEntity.ok().body(webuserRepository.save(webuser));
 			}
-=======
-
-			return ResponseEntity.ok().body(webuserRepository.save(webuser));
->>>>>>> b4cb3987d1307c027db60af3d7222695825d7082
 		} catch (Exception ex) {
 			return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 

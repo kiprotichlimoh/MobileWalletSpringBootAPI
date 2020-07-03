@@ -46,11 +46,7 @@ public class AccountController {
 		return ResponseEntity.ok().body(account);
 	}
 
-<<<<<<< HEAD
 	@PostMapping("/balance")
-=======
-	@GetMapping("/balance")
->>>>>>> b4cb3987d1307c027db60af3d7222695825d7082
 	public ResponseEntity<?> getAccountBalanceByCustomerIdAndAccountNo(@RequestBody String request)
 			throws ResourceNotFoundException {
 		try {
@@ -62,14 +58,9 @@ public class AccountController {
 
 			// TODO : Add logic to find account balance by CustomerId And
 			// AccountNo
-<<<<<<< HEAD
 			Account account = accountRepository.findAccountByCustomerIdAndAccountNo(customerId, accountNo)
 					.orElseThrow(() -> new ResourceNotFoundException("could not fetch account balance now, please try again."));
 
-=======
-			Account account = null;
-			
->>>>>>> b4cb3987d1307c027db60af3d7222695825d7082
 			response.addProperty("balance", account.getBalance());
 			return ResponseEntity.ok().body(gson.toJson(response));
 		} catch (Exception ex) {
